@@ -10,7 +10,7 @@ local wikis = {
   {
     path = vim.fn.expand("~/path/to/wiki/2/"),
     diary_template = "path/to/template/filter2", -- I'll filter2 your filter2ing filter2
-    syntax = "markdown", 
+    syntax = "markdown",
     ext = ".md",
     auto_tags = 1
   },
@@ -28,12 +28,12 @@ return {
 
       -- Hoopy Frood Loop
       for _,v in ipairs(wikis) do
-        -- See if the wiki exists on this machine (touch it first if it's new)
+        -- See if the wiki exists on this machine (you should `touch` it first if it's brand new)
         local wiki_here = vim.fn.filereadable(v.path .. "index.md") -- [1] Glad you left that trailing slash?
 
         if wiki_here == 1 then
           -- I'm new to lua, this might be dumb
-          local wiki_def = { 
+          local wiki_def = {
             path = v.path,
             syntax = v.syntax,
             ext = v.ext,
